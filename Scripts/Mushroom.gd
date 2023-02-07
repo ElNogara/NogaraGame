@@ -42,7 +42,6 @@ func _set_animation():
 		$anim.play(anim)
 
 func _on_hitbox_body_entered(body: Node) -> void:
-	print("CAMILA TA MATANDO O BIXINHO")
 	hitted = true
 	health -= 1
 	body.velocity.y -= 300
