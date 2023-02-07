@@ -14,6 +14,9 @@ var knockback_int = 1000
 
 onready var raycasts = $raycasts
 
+func _ready() -> void:
+	position.x = Global.checkpoint_pos + 50
+
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	velocity.x = 0
@@ -83,3 +86,6 @@ func _on_hurtbox_body_entered(body):
 	if health < 1:
 		queue_free()
 		get_tree().reload_current_scene()
+
+func hit_checkpoint():
+	Global.checkpoint_pos = position.x
