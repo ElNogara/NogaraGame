@@ -10,4 +10,4 @@ https://godotengine.org/download/linux/
 
 And import the project into Godot!
 
-![image](https://user-images.githubusercontent.com/50090354/216851857-b014c975-ddc1-4f95-822a-663b9f864412.png)
+![image](https://user-images.githubusercontent.com/50090354/217328919-d23e9385-5c75-46e0-b513-8d789d5a1f0d.png)
