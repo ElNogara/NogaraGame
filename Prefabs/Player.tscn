@@ -282,7 +282,7 @@ extents = Vector2( 8.5, 9.5 )
 extents = Vector2( 10, 9 )
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 10, 2 )
+extents = Vector2( 6.5, 2 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -16 )
@@ -382,8 +382,8 @@ collision_mask = 2
 [node name="headCollider" type="Area2D" parent="."]
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="headCollider"]
-position = Vector2( 0, -9 )
+[node name="collisionHead" type="CollisionShape2D" parent="headCollider"]
+position = Vector2( 1.5, -9 )
 shape = SubResource( 14 )
 
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
