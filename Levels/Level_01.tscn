@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" type="Texture" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://Prefabs/Transition_in.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Prefabs/Box/break-box.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Prefabs/Enemies/Birdie.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Prefabs/Transition_out.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Prefabs/Enemies/Plantle.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1142,6 +1144,9 @@ position = Vector2( 952, 91 )
 position = Vector2( 182, 88 )
 speed = 40
 
+[node name="plantle" parent="." instance=ExtResource( 23 )]
+position = Vector2( 232, 96 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="sky" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -1193,17 +1198,6 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="fallZone" type="Area2D" parent="."]
-position = Vector2( 448, 277.863 )
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="collision" type="CollisionShape2D" parent="fallZone"]
-position = Vector2( 307, 0 )
-shape = SubResource( 47 )
-
 [node name="Items" type="Node2D" parent="."]
 
 [node name="apple" parent="Items" instance=ExtResource( 9 )]
@@ -1219,7 +1213,7 @@ position = Vector2( 302, 164 )
 position = Vector2( 320, 164 )
 
 [node name="banana" parent="Items" instance=ExtResource( 10 )]
-position = Vector2( 239, 85 )
+position = Vector2( 339, 163 )
 
 [node name="banana3" parent="Items" instance=ExtResource( 10 )]
 position = Vector2( 1068, 152 )
@@ -1235,6 +1229,19 @@ position = Vector2( 63, 79 )
 
 [node name="HUD" parent="." instance=ExtResource( 17 )]
 
+[node name="Transition_out" parent="." instance=ExtResource( 22 )]
+
 [node name="Transition_in" parent="." instance=ExtResource( 19 )]
+
+[node name="fallZone" type="Area2D" parent="."]
+position = Vector2( 448, 277.863 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="collision" type="CollisionShape2D" parent="fallZone"]
+position = Vector2( 307, 0 )
+shape = SubResource( 47 )
 
 [connection signal="body_entered" from="fallZone" to="fallZone" method="_on_fallZone_body_entered"]
