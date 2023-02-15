@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Prefabs/Enemies/Birdie.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Prefabs/Transition_out.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Prefabs/Enemies/Plantle.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Assets/Music/Retro Beat.ogg" type="AudioStream" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -1243,5 +1244,10 @@ __meta__ = {
 [node name="collision" type="CollisionShape2D" parent="fallZone"]
 position = Vector2( 307, 0 )
 shape = SubResource( 47 )
+
+[node name="bgMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 24 )
+volume_db = -25.0
+autoplay = true
 
 [connection signal="body_entered" from="fallZone" to="fallZone" method="_on_fallZone_body_entered"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Birdie.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sounds/pepSound4.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Pixel Adventure 2/Enemies/BlueBird/Hit (32x32).png" type="Texture" id=3]
 [ext_resource path="res://Prefabs/Box/hitbox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Pixel Adventure 2/Enemies/BlueBird/Flying (32x32).png" type="Texture" id=6]
@@ -187,6 +188,9 @@ collision_mask = 8
 [node name="hitbox" parent="." instance=ExtResource( 4 )]
 modulate = Color( 0.898039, 0.807843, 0.0745098, 1 )
 position = Vector2( 0, -24 )
+
+[node name="hitFx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
