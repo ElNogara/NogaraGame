@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Pixel Adventure 1/Free/Main Characters/Nogara/Hit (32x32).png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Pixel Adventure 1/Free/Main Characters/Nogara/Fall (32x32).png" type="Texture" id=6]
 [ext_resource path="res://Assets/Pixel Adventure 1/Free/Main Characters/Nogara/idle (32x32).png" type="Texture" id=7]
 [ext_resource path="res://Assets/Pixel Adventure 1/Free/Other/Shadow.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sounds/jump1.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Gradient" id=9]
 offsets = PoolRealArray( 0, 0.462121, 1 )
@@ -386,5 +387,10 @@ collision_mask = 16
 position = Vector2( 1.5, -9 )
 shape = SubResource( 14 )
 
+[node name="jumpFx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = -40.0
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="headCollider" to="." method="_on_headCollider_body_entered"]

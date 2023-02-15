@@ -49,6 +49,7 @@ func _on_hitbox_body_entered(body: Node) -> void:
 	body.velocity.y = (body.jump_force - 200) /2
 	yield(get_tree().create_timer(0.2), "timeout")
 	hitted = false
+	$hitFx.play()
 	if health < 1:
 		queue_free()
 		get_node("hitbox/collision").set_deferred("disabled", true)
